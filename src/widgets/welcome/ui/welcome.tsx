@@ -1,3 +1,5 @@
+import { Button } from '../../../shared/ui/button'
+
 export const Welcome = (): JSX.Element => {
   return (
     <div className="max-w-xl rounded-2xl shadow-md">
@@ -27,7 +29,11 @@ export const Welcome = (): JSX.Element => {
         </ul>
       </div>
 
-
+      <div className='flex justify-center items-center pb-10'>
+        <Button type='text' cb={() => null}>
+          Начать новую игру
+        </Button>
+      </div>
     </div>
   )
 }
