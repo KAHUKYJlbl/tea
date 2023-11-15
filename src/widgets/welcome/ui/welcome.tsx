@@ -1,8 +1,13 @@
-import { Button } from '../../../shared/ui/button'
+import { memo } from 'react';
+import { Button } from '../../../shared/ui/button';
 
-export const Welcome = (): JSX.Element => {
+type WelcomeProps = {
+  cb: () => void
+}
+
+export const Welcome = memo(({ cb }: WelcomeProps): JSX.Element => {
   return (
-    <div className="max-w-xl rounded-2xl shadow-md">
+    <>
       <div className="w-full h-16 py-4 text-center">
         <h1 className="text-base">
           Игра в города на время
@@ -30,10 +35,10 @@ export const Welcome = (): JSX.Element => {
       </div>
 
       <div className='flex justify-center items-center pb-10'>
-        <Button type='text' cb={() => null}>
+        <Button type='text' cb={cb}>
           Начать новую игру
         </Button>
       </div>
-    </div>
+    </>
   )
-}
+});
