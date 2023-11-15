@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 
 import { Welcome } from '../../../widgets/welcome';
+import { Game } from '../../../widgets/game';
 import { End } from '../../../widgets/end';
 
 const GamePage = (): JSX.Element => {
@@ -24,11 +25,14 @@ const GamePage = (): JSX.Element => {
   return (
     <div className='w-screen h-screen flex justify-center items-center'>
       <div className="max-w-xl rounded-2xl shadow-md">
-        {/* { isNewGame && <Welcome cb={handleNewGame} /> } */}
+        {/* Welcome screen */}
+        { isNewGame && <Welcome cb={handleNewGame} /> }
 
-        {/* { !isNewGame && !isGameEnd && <Game cb={handleEndGame} /> } */}
+        {/* Game screen */}
+        { !isNewGame && !isGameEnd && <Game cb={handleEndGame} /> }
 
-        { isNewGame && <End cb={handleRestart} win={isWin} /> }
+        {/* Game results screen */}
+        { isGameEnd && <End cb={handleRestart} win={isWin} /> }
       </div>
     </div>
   )
