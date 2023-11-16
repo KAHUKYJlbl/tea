@@ -1,3 +1,3 @@
-export type { CityType } from './lib/types';
-export { citiesSlice } from './model/cities-slice';
-export { getPlayed, getLastPlayed } from './model/cities-selectors';
+export type { CityType, PlayedCityType } from './lib/types';
+export { citiesSlice, addPlayed, clearPlayed } from './model/cities-slice';
+export { getPlayed, getLastPlayed, getCities } from './model/cities-selectors';

@@ -8,13 +8,13 @@ type WelcomeProps = {
 export const Welcome = memo(({ cb }: WelcomeProps): JSX.Element => {
   return (
     <>
-      <div className="w-full h-16 py-4 text-center">
+      <div className="w-full h-16 py-4 border-b-4 border-gray-100 text-center">
         <h1 className="text-base">
           Игра в города на время
         </h1>
       </div>
 
-      <div className="w-full mb-6 p-6 border-t-4 border-gray-100 text-sm text-gray-600">
+      <div className="w-full mb-6 p-6 text-sm text-gray-600">
         <h3 className="mb-6">
           Цель: Назвать как можно больше реальных городов.
         </h3>
