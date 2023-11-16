@@ -1,14 +1,16 @@
 import cn from 'classnames';
 
 import { PlayedCityType } from '../lib/types';
+import { forwardRef } from 'react';
 
 type CityProps = {
   city: PlayedCityType;
 };
 
-export const City = ({ city: { city, player } }: CityProps): JSX.Element => {
+export const City = forwardRef<HTMLDivElement, CityProps>(({ city: {player, city} }, ref): JSX.Element => {
   return (
     <div
+      ref={ref}
       className={cn(
         'flex w-full',
         (
@@ -32,4 +34,4 @@ export const City = ({ city: { city, player } }: CityProps): JSX.Element => {
       </div>
     </div>
   )
-};
+});

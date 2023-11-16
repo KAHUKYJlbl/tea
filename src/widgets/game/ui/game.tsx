@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTimer } from 'react-timer-hook';
 
 import { ROUND_LENGTH } from '../../../app/settings/round-length';
@@ -13,6 +13,7 @@ type GameProps = {
 }
 
 export const Game = ({ cb }: GameProps): JSX.Element => {
+  const scrollRef = useRef<HTMLDivElement>(null);
   const [ isPlayersTurn, setIsPlayersTurn ] = useState(true);
   const playedCities = useAppSelector(getPlayed);
 
@@ -44,8 +45,10 @@ export const Game = ({ cb }: GameProps): JSX.Element => {
 
       <div className='overflow-scroll flex flex-col gap-2 h-80 px-4 py-5'>
         {
-          playedCities.map((city) => (
-            <City city={city} key={city.city} />
+          playedCities.map((city, index) => (
+            index === playedCities.length - 1
+             ? <City city={city} key={city.city} ref={scrollRef} />
+             : <City city={city} key={city.city} />
           ))
         }
       </div>
@@ -58,6 +61,7 @@ export const Game = ({ cb }: GameProps): JSX.Element => {
         <NewCity
           cb={setIsPlayersTurn}
           restartTimer={restart}
+          scrollRef={scrollRef}
         />
       </div>
     </div>

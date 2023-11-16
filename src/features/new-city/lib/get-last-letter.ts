@@ -1,6 +1,6 @@
 export const getLastLetter = (cityName: string) => {
   const isNotCapital = (str: string) => {
-    return (str === 'ь' || str === 'ъ');
+    return (str === 'ь' || str === 'ъ' || str === 'ы');
   };
 
   if ( isNotCapital( cityName[cityName.length - 1] ) ) {
