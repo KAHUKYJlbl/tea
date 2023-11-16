@@ -9,6 +9,7 @@ type ButtonProps = {
 export const Button = ({ cb, type, children }: PropsWithChildren<ButtonProps>): JSX.Element => {
   return (
     <button
+      type={type === 'text' ? 'button' : 'submit'}
       onClick={cb}
       className={cn(
         'bg-violet-600 text-white rounded',

@@ -3,8 +3,11 @@ import { useCallback, useState } from 'react';
 import { Welcome } from '../../../widgets/welcome';
 import { Game } from '../../../widgets/game';
 import { End } from '../../../widgets/end';
+import { useAppDispatch } from '../../../shared/lib/hooks/use-app-dispatch';
+import { clearPlayed } from '../../../entities/city';
 
 const GamePage = (): JSX.Element => {
+  const dispatch = useAppDispatch();
   const [ isNewGame, setNewGame ] = useState(true);
   const [ isGameEnd, setGameEnd ] = useState(false);
   const [ isWin, setWin ] = useState(false);
@@ -14,11 +17,12 @@ const GamePage = (): JSX.Element => {
   }, []);
 
   const handleEndGame = useCallback((isWinner: boolean) => {
-    setGameEnd(true);
     setWin(isWinner);
+    setGameEnd(true);
   }, []);
 
   const handleRestart = useCallback(() => {
+    dispatch(clearPlayed());
     setGameEnd(false);
   }, []);
 

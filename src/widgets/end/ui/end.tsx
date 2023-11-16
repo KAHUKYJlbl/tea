@@ -46,8 +46,8 @@ export const End = memo(({ cb, win }: EndProps): JSX.Element => {
 
       <p className='text-xl'>
         Последний город названный победителем
-        <span className='text-2xl'>
-          {lastCity}
+        <br/><span className='text-2xl'>
+          {lastCity?.city}
         </span>
       </p>
 
